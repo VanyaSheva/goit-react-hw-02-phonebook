@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import styles from "./AddContact.module.css";
 export default class App extends Component {
+  static propTypes = {
+    onFormSubmit: PropTypes.func.isRequired,
+  };
   state = {
     name: "",
     number: "",
@@ -31,7 +36,6 @@ export default class App extends Component {
             className={styles.input}
             type="text"
             name="name"
-            value={this.state.name}
             value={name}
             onChange={this.handleChange}
             required
@@ -43,7 +47,6 @@ export default class App extends Component {
             className={styles.input}
             type="text"
             name="number"
-            value={this.state.number}
             value={number}
             onChange={this.handleChange}
             required
